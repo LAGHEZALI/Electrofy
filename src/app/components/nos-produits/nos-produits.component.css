@@ -1,0 +1,148 @@
+* {font-family: "Roboto", sans-serif}
+h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+
+
+/*  pagination */
+.center {
+    text-align: center;
+    margin: 30px auto;
+}
+.pagination {
+    display: inline-block;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 50%;
+}
+.pagination a.active {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/*  side buttons */
+#filter {
+    position: absolute; /* Position them relative to the browser window */
+    left: -50px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px 20px 15px 5px; /* 15px padding */
+    width: 100px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+    top: 180px;
+    background-color: black; /* Red */
+}
+#reset {
+    position: absolute; /* Position them relative to the browser window */
+    left: -180px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px 50px 15px 5px; /* 15px padding */
+    width: 230px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+    top: 260px;
+    background-color:black /* Light Black */
+}
+#mySidenav a:hover {
+    cursor: pointer;
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+
+/* filtre side bar */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top:10%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #CCC;
+    display: block;
+    transition: 0.3s;
+}
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+
+
+input[type=text]{
+    width: 50%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    background-color: rgba(0,0,0, 0);
+    color: #DDD;
+    border: none;
+    border-bottom: 2px #818181 solid;
+}
+
+select {
+    width: 50%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    text-align: center;
+    text-align-last: center;
+    background-color: rgba(0,0,0, 0);
+    color: #DDD;
+    border: none;
+    border-bottom: 2px #818181 solid;
+}
+
+option{
+    color: #DDD;
+    background-color: rgba(0,0,0,0.9);
+}

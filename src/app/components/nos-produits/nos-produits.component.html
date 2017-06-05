@@ -1,0 +1,135 @@
+<div class="w3-content" style="margin-top:80px">
+
+	<!-- Filtre Side Bar -->
+	<div id="filtreNav" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" (click)="filtreClose()">&times;</a>
+		<div class="overlay-content">
+			<a>Filtrer</a>
+			
+			<input type="text" class="w3-xxlarge w3-center" placeholder="Tapez des mots clés ici...">
+			
+			<select class="w3-xlarge" >
+				<option >Catégorie</option>
+				<option >Télévision</option>	
+				<option>Four</option>
+				<option>Machine à laver</option>
+				<option>Aspirateur</option>
+				<option>Autre</option>
+			</select>
+			
+			<select class="w3-center w3-xlarge ">
+				<option>Marque</option>
+				<option>LG</option>	
+				<option>Samsung</option>
+				<option>Samsung</option>
+			</select>
+			
+			<div class="w3-row" style="width: 50%;margin:0 auto;">
+				
+				<input type="text" class="w3-xlarge w3-col s6 l6  w3-center" placeholder="Prix Min">
+				<input type="text" class="w3-xlarge w3-col s6 l6 w3-center" placeholder="Prix Max">
+			</div>
+
+			<button class="w3-btn w3-white w3-round-xxlarge w3-hover-black w3-xlarge w3-margin-top">Lancer le Filtre</button>
+			
+		</div>
+	</div>
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-main">
+
+		<!-- filtre side buttons -->
+		<div id="mySidenav" class="sidenav">
+			<a (click)="filtreOpen()" id="filter">Filter </a>
+			<a  id="reset">Réinstaliser le Filtre </a>
+		</div>
+
+		<!-- Image header -->
+		<div class="w3-display-container w3-container">
+			<img src="assets/img/slide2.jpg" alt="Jeans" style="width:100%">
+		</div>
+
+		<div class="w3-container w3-text-grey" >
+			<p>8 Produits</p>
+		</div>
+
+		<!-- Product grid -->
+		<div class="w3-row w3-grayscale">
+			
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat1.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat2.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat3.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat4.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat5.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat6.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat7.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			<div class="w3-col l3 s6">
+				<div class="w3-container">
+					<img src="assets/img/cat8.jpg" style="width:100%">
+					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
+				</div>
+			</div>
+
+			
+		</div>
+		<!-- End page content -->
+	</div>
+
+</div>
+
+<!-- Pagination -->
+
+<div class="center">
+	<div class="pagination">
+		<a href="#" class="active ">Précédent</a>
+		<a href="#">1</a>
+		<a href="#" >2</a>
+		<a href="#" class="active">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+		<a href="#" class="active ">Suivant</a>
+	</div>
+</div>
+
