@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -24,6 +24,20 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SignComponent } from './components/sign/sign.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { Error404Component } from './components/error404/error404.component';
+
+//  Routes
+
+const appRoutes: Routes = [
+
+  { path: ''          , component: HomeComponent        },
+  { path: 'produits'  , component: NosProduitsComponent },
+  { path: 'categories', component: CategoriesComponent  },
+  { path: 'contact'   , component: ContactComponent     },
+  { path: 'admin'     , component: AdminComponent       },
+  { path: '**'        , component: Error404Component    }
+];
+
 
 @NgModule({
   declarations: [
@@ -37,35 +51,15 @@ import { AdminComponent } from './components/admin/admin.component';
     FooterComponent,
     ContactComponent,
     SignComponent,
-    AdminComponent
+    AdminComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'categories',
-        component: CategoriesComponent
-      },
-      {
-        path: 'produits',
-        component: NosProduitsComponent
-      },
-      {
-        path: 'contact',
-        component: ContactComponent
-      },
-      {
-        path: 'admin',
-        component: AdminComponent
-      }
-    ]),
+    RouterModule.forRoot( appRoutes ),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB1N3djR5Yja62HmBWn2rLoI71jMyF21cc'
     })
