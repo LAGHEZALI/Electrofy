@@ -1,9 +1,32 @@
 
 <div id="panierNav" class="overlay">
     <a href="javascript:void(0)" class="closebtn" (click)="panierClose()">&times;</a>
-    <div class="overlay-content">
+    <button href="javascript:void(0)" class="pay w3-white w3-button w3-round-xxlarge w3-hover-red" (click)="passerPaiement()"><i class="fa fa-money" aria-hidden="true"></i>
+ Passer Au Paiment</button>
+    <div class="overlay-content" style="width:50%;margin:auto">
         <a href="#" >Mon Panier</a>
-        <br>
-       
+        
+        <ul class="w3-ul w3-card-4" style="background: white">
+            
+            <li *ngFor="let item of panierService.items; let ind = index" class="w3-padding-24">
+                <span (click)="removeItem(ind) " class="w3-button w3-white w3-xlarge w3-right"><i class="fa fa-trash fa-3x" aria-hidden="true"></i></span>
+                <img src="{{item.img}}" class="w3-left w3-circle w3-margin-right" style="width:100px;height:100px">
+                <span class="w3-xlarge w3-block">{{item.title}}</span>
+                <br>
+                <span class="w3-large w3-block">
+                    Quantité 
+                    <span class="w3-badge">{{item.quant}}</span>
+                     Prix Total
+                    <span class="w3-tag w3-large w3-black w3-round-large">
+                         {{item.total}} DH
+                    </span>
+
+                </span>
+            </li>
+
+        </ul>
+
+        <div id="snackbarPanier"></div>
+
     </div>
 </div>

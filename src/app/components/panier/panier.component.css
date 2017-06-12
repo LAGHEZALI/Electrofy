@@ -13,7 +13,7 @@
 
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 5%;
     width: 100%;
     text-align: center;
     margin-top: 30px;
@@ -34,9 +34,16 @@
 
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
+    top: -5px;
     right: 45px;
     font-size: 60px;
+}
+
+.overlay .pay {
+    position: absolute;
+    top: 50px;
+    left: 65px;
+    font-size: 20px;
 }
 
 @media screen and (max-height: 450px) {
@@ -46,4 +53,34 @@
     top: 15px;
     right: 35px;
   }
+}
+
+
+/*  snack bar */
+
+
+#snackbarPanier {
+    opacity: 0;
+    background-color:#DDD;
+    color: #333;
+    text-align: center;
+    border-radius: 50px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    left: 0%;
+    margin: auto;
+    bottom: 2%;
+    font-size: 20px;
+}
+
+#snackbarPanier.show {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#snackbarPanier.hide {
+    opacity: 0;
+    transition: 0.5s;
 }

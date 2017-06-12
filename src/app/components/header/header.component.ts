@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PanierService } from './../../services/panier.service';
+import { SignService } from './../../services/sign.service';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +10,30 @@ import { PanierService } from './../../services/panier.service';
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(private panierService: PanierService ) {}
+    constructor(
+        private panierService: PanierService,
+        private signService: SignService,
+        private router: Router
+        ) {}
 
     panierOpen() {
         this.panierService.openPanier();
     }
 
-    openConnexionModal() {
-        document.getElementById('id01').style.display = 'block';
+    signOpen() {
+        this.signService.openSign();
+    }
+
+    accountOpen() {
+
+        const x = document.getElementById('demo');
+        if (x.className.indexOf('w3-show') === -1) {
+            x.className += ' w3-show';
+        } else {
+            x.className = x.className.replace(' w3-show', '');
+        }
+
+        console.log('wiiiiii3');
     }
 
     menuMobile() {
@@ -35,6 +53,6 @@ export class HeaderComponent implements OnInit {
         document.getElementById('searchNav').style.height = '0%';
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
 }

@@ -1,38 +1,70 @@
-<!-- NavBar -->
-<div class="w3-top" >
-    <div class="w3-bar w3-border w3-white w3-large w3-card-4" >
-        <!-- Left -->
-        <a routerLink="/" class="w3-bar-item w3-button w3-black w3-padding-16"><i class="fa fa-home"> </i> Electrofy</a>
-        <a routerLink="/produits" class="w3-bar-item w3-button w3-padding-16 w3-hide-small">Nos Produits</a>
-        <a routerLink="/categories"  class="w3-bar-item w3-button w3-padding-16 w3-hide-small">Catégories</a>
-        <a routerLink="/contact" class="w3-bar-item w3-button w3-padding-16 w3-hide-small">Contact</a>
-        <span class="w3-bar-item w3-button w3-black w3-padding-16 w3-hide-small" (click)="openSearch()"><i class="fa fa-search"></i></span>
-        <!-- Right -->
-        <span href="#" class="w3-bar-item w3-button w3-black w3-right w3-padding-16 w3-hide-small" (click)="panierOpen()" ><i class="fa fa-shopping-basket"></i></span>
-        <a (click)="openConnexionModal()" class="w3-bar-item w3-button w3-padding-16 w3-right w3-hide-small">Authentification</a>
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-padding-16 w3-black " (click)="menuMobile()">&#9776; Menu</a>            
-    </div>
+<div *ngIf="this.router.url!=='/admin'; then adminHeader"></div>
 
-      <!-- NavBar Mobile Mode -->
-    <div id="demo" class="w3-bar w3-border w3-white w3-large w3-card-4 w3-hide w3-hide-large w3-hide-medium w3-animate-top">
-        <!-- Left -->
-        <a routerLink="/produits" class="w3-bar-item w3-button w3-mobile w3-padding-16 ">Nos Produits</a>
-        <a routerLink="/categories" class="w3-bar-item w3-button w3-mobile w3-padding-16 ">Catégories</a>
-        <a routerLink="/contact" class="w3-bar-item w3-button w3-mobile w3-padding-16 ">Contact</a>
-        <span class="w3-bar-item w3-button w3-black w3-padding-16 w3-mobile" (click)="openSearch()"><i class="fa fa-search"></i></span>
-        <!-- Right -->
-        <a (click)="openConnexionModal()" class="w3-bar-item w3-button w3-padding-16 w3-right w3-mobile">S'Athentifier</a>
-        <span href="#" class="w3-bar-item w3-button w3-black w3-right w3-padding-16 w3-mobile" (click)="panierOpen()" ><i class="fa fa-shopping-basket"></i></span>
-    </div>
+<ng-template #adminHeader>
 
-</div>     
+    <!-- NavBar -->
+    <div class="w3-top" >
+        <div class="w3-bar w3-border w3-white w3-large w3-card-4" >
+            <!-- Left -->
+            <a routerLink="/" class="w3-bar-item w3-button w3-black w3-padding-16"><i class="fa fa-home"> </i> Electrofy</a>
+            <a routerLink="/produits" class="w3-bar-item w3-button w3-padding-16 w3-hide-small">Nos Produits</a>
+            <a routerLink="/categories"  class="w3-bar-item w3-button w3-padding-16 w3-hide-small">Catégories</a>
+            <a routerLink="/contact" class="w3-bar-item w3-button w3-padding-16 w3-hide-small">Contact</a>
+            <span class="w3-bar-item w3-button w3-black w3-padding-16 w3-hide-small" (click)="openSearch()"><i class="fa fa-search"></i></span>
+            <!-- Right -->
+            <span href="#" class="w3-bar-item w3-button w3-black w3-right w3-padding-16 w3-hide-small" (click)="panierOpen()" ><i class="fa fa-shopping-basket"></i></span>
+            
+            <div *ngIf="this.signService.isConneted===false; then deconnected else connected"></div>
+            
+            
+            <ng-template #deconnected>
+                <a (click)="signOpen()" class="w3-bar-item w3-button w3-black w3-padding-16 w3-right w3-hide-small"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            </ng-template>
+            <ng-template #connected>
 
-<!-- Recherche Rapide -->
-<div id="searchNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" (click)="closeSearch()" >&times;</a>
-    <div class="overlay-content">
-       <input type="text" placeholder="Ecrivez ici..." class="w3-jumbo w3-center">
-       <br>
-        <button class="w3-btn w3-white w3-round-xxlarge w3-hover-black w3-jumbo w3-margin-top">Lancer la Recherche</button>
+            <div class="w3-dropdown-click w3-right">
+                <button (click)="accountOpen()" class="w3-button w3-bar-item w3-black w3-padding-16  w3-hide-small">
+                    <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-caret-left" aria-hidden="true"></i>
+                </button>
+                <div id="demo" class="w3-dropdown-content w3-card-2 w3-animate-right">
+                    <a href="" class="w3-bar-item w3-button">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> Mon Compte
+                    </a>
+                    <a (click)="this.signService.deconnexion()" class="w3-bar-item w3-button">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion
+                    </a>
+                </div>
+            </div>
+                
+            </ng-template>
+            
+            
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-padding-16 w3-black " (click)="menuMobile()">&#9776; Menu</a>            
+        </div>
+
+        <!-- NavBar Mobile Mode -->
+        <div id="demo" class="w3-bar w3-border w3-white w3-large w3-card-4 w3-hide w3-hide-large w3-hide-medium w3-animate-top">
+            <!-- Left -->
+            <a routerLink="/produits" class="w3-bar-item w3-button w3-mobile w3-padding-16 ">Nos Produits</a>
+            <a routerLink="/categories" class="w3-bar-item w3-button w3-mobile w3-padding-16 ">Catégories</a>
+            <a routerLink="/contact" class="w3-bar-item w3-button w3-mobile w3-padding-16 ">Contact</a>
+            <span class="w3-bar-item w3-button w3-black w3-padding-16 w3-mobile" (click)="openSearch()"><i class="fa fa-search"></i></span>
+            <!-- Right -->
+            <a (click)="signOpen()" class="w3-bar-item w3-button w3-black w3-padding-16 w3-right w3-mobile"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+            <span href="#" class="w3-bar-item w3-button w3-black w3-right w3-padding-16 w3-mobile" (click)="panierOpen()" ><i class="fa fa-shopping-basket"></i></span>
+        </div>
+
+    </div>     
+
+    <!-- Recherche Rapide -->
+    <div id="searchNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" (click)="closeSearch()" >&times;</a>
+        <div class="overlay-content">
+        <input type="text" placeholder="Ecrivez ici..." class="w3-jumbo w3-center">
+        <br>
+            <button class="w3-btn w3-white w3-round-xxlarge w3-hover-black w3-jumbo w3-margin-top">Lancer la Recherche</button>
+        </div>
     </div>
-</div>
+    
+</ng-template>
+

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class PanierService {
 
+  items = [];
+
   constructor() { }
 
   openPanier() {
@@ -10,6 +12,10 @@ export class PanierService {
   }
 
   closePanier() {
+    document.getElementById('panierNav').style.width = '0%';
+  }
+
+  addItem() {
     document.getElementById('panierNav').style.width = '0%';
   }
 

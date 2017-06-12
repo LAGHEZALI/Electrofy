@@ -40,13 +40,13 @@
 
 		<!-- filtre side buttons -->
 		<div id="mySidenav" class="sidenav">
-			<a (click)="filtreOpen()" id="filter">Filter </a>
-			<a  id="reset">Réinstaliser le Filtre </a>
+			<a (click)="filtreOpen()" id="filter">Filter ←</a>
+			<a  id="reset">Réinstaliser le Filtre ←</a>
 		</div>
 
 		<!-- Image header -->
 		<div class="w3-display-container w3-container">
-			<img src="assets/img/slide2.jpg" alt="Jeans" style="width:100%">
+			<img src="assets/img/nosProduits.png" alt="Jeans" style="width:100%">
 		</div>
 
 		<div class="w3-container w3-text-grey" >
@@ -56,63 +56,14 @@
 		<!-- Product grid -->
 		<div class="w3-row w3-grayscale">
 			
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat1.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat2.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat3.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat4.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat5.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat6.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat7.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
-			<div class="w3-col l3 s6">
-				<div class="w3-container">
-					<img src="assets/img/cat8.jpg" style="width:100%">
-					<p>Ripped Skinny Jeans<br><b>$24.99</b></p>
-				</div>
-			</div>
-
 			
+			<div *ngFor="let item of items; let ind = index" class="w3-col l3 s6 w3-margin">
+				<div class="w3-container">
+					<img src="{{item.img}}" style="width:100%;height: 200px">
+					{{item.title}}<br><b>{{item.prix}} DH</b> <button (click)="filtreOpenDetail(ind)" class="w3-button w3-round-xxlarge w3-black w3-right w3-tiny">Détails</button>
+				</div>
+			</div>
+
 		</div>
 		<!-- End page content -->
 	</div>
@@ -133,3 +84,68 @@
 	</div>
 </div>
 
+<!-- Detail produit -->
+
+<!-- detail -->
+<div id="filtreNavDetail" class="overlayDetail">
+	
+	<a href="javascript:void(0)" class="closebtnDetail" (click)="filtreCloseDetail()">&times;</a>
+	<div class="overlay-contentDetail w3-container">
+		<a>Détails</a>
+
+		<div class="w3-row">
+
+			<a (click)="openCity('London');">
+				<div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Général</div>
+			</a>
+			
+			<a (click)="openCity('Paris');">
+				<div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Description</div>
+			</a>
+			
+			<a (click)="openCity('Tokyo');">
+				<div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Ajouter</div>
+			</a>
+			
+		</div>
+
+		<div id="London" class="w3-container city w3-animate-top" style="display:none">
+			<h2>Général</h2>
+			<div class="w3-card-4 w3-white  w3-padding-24" style="width:60%;margin: auto">
+
+				<div class="w3-container w3-row">
+					
+					<div class="w3-col l6 m6 s6" >
+						<img src="{{currDetail.img}}" alt="Image" style="width:70%">
+					</div>
+					
+					<div class="w3-col l6 m6 s6">
+						<h1 class="">{{currDetail.title}}</h1>
+						<h1 class="w3-tag w3-xxlarge w3-black w3-round-large">{{currDetail.prix}} DH</h1>
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+
+		<div id="Paris" class="w3-container city w3-animate-top" style="display:none">
+			<h2>Description</h2>
+			<p>{{currDetail.desc}}</p>
+		</div>
+
+		<div id="Tokyo" class="w3-container city w3-animate-top" style="display:none">
+			<h2>Ajouter Au Panier</h2>
+			<div class="w3-row w3-section">
+				<button (click)="incQuant()" class="w3-button w3-col l4 m4 s4 w3-round-xxlarge w3-white w3-xxlarge"><b>+</b></button>
+				<span class="w3-xxxlarge w3-col l4 m4 s4 w3-text-white" id="quantite">Quantité : {{quantitePanier}}</span>
+				<button (click)="decQuant()" class="w3-button w3-col l4 m4 s4 w3-round-xxlarge w3-white w3-xxlarge"> <b>-</b></button>
+			</div>
+
+			<span style="width:100%;margin:auto" class="w3-section w3-xxxlarge w3-col l4 m4 s4 w3-text-white w3-center " id="quantite"> Total :{{valTot}} DH</span>
+			
+			<button style="width:50%;margin:auto" (click)="ajouterPanier()" class="w3-section w3-button w3-round-xxlarge w3-white w3-xxlarge">Ajouter Au Panier</button>
+			
+		</div>
+		
+</div>

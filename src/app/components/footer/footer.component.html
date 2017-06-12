@@ -1,40 +1,46 @@
-<!-- Footer -->
-<footer class="w3-padding-64 w3-black w3-small w3-center" id="footer">
-  <div class="w3-row-padding">
-    <div class="w3-col s4">
-      <h1>NewsLetter</h1>
-      <p>Inscrit toi au <b><i>NewsLetter</i></b> pour recevoir les bons plans ainsi que les nouveautés</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter votre e-mail" style="width:100%"></p>
-      <button type="button" class="w3-button w3-red w3-margin-bottom">Je m'inscrit au NewsLetter</button>
-    </div>
+<div *ngIf="this.router.url!=='/admin'; then adminFooter"></div>
 
-    <div class="w3-col s4" >
-      <h4>Navigation</h4>
-      <p><a href="#">Acceuil</a></p>
-      <p><a href="#">Nos Produits</a></p>
-      <p><a href="#">Catégories</a></p>
-      <p><a href="#">Inscription</a></p>
-      <p><a href="#">Contact</a></p>
-    </div>
+<ng-template #adminFooter>
 
-    <div class="w3-col s4 w3-justify">
-      <h4>Notre Magasin</h4>
-      <p><i class="fa fa-fw fa-map-marker"></i> Mohammedia, Maroc</p>
-      <p><i class="fa fa-fw fa-phone"></i> (+212) 5 44 12 31 23</p>
-      <p><i class="fa fa-fw fa-envelope"></i> electrofy@store.com</p>
-      <h4>Suivez Nous !</h4>
-      <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
-      <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
-      <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
-      <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
-      <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
-      <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-black w3-small w3-center" id="footer">
+    <div class="w3-row-padding">
+      <div class="w3-col s4">
+        <h1>NewsLetter</h1>
+        <p>Inscrit toi au <b><i>NewsLetter</i></b> pour recevoir les bons plans ainsi que les nouveautés</p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Enter votre e-mail" style="width:100%"></p>
+        <button type="button" class="w3-button w3-red w3-margin-bottom">Je m'inscrit au NewsLetter</button>
+      </div>
+
+      <div class="w3-col s4" >
+        <h4>Navigation</h4>
+        <p><a href="#">Acceuil</a></p>
+        <p><a href="#">Nos Produits</a></p>
+        <p><a href="#">Catégories</a></p>
+        <p><a href="#">Inscription</a></p>
+        <p><a href="#">Contact</a></p>
+      </div>
+
+      <div class="w3-col s4 w3-justify">
+        <h4>Notre Magasin</h4>
+        <p><i class="fa fa-fw fa-map-marker"></i> Mohammedia, Maroc</p>
+        <p><i class="fa fa-fw fa-phone"></i> (+212) 5 44 12 31 23</p>
+        <p><i class="fa fa-fw fa-envelope"></i> electrofy@store.com</p>
+        <h4>Suivez Nous !</h4>
+        <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+        <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+        <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+        <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+        <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
+      </div>
     </div>
+  </footer>
+
+  <div  class="w3-black w3-center w3-padding-16">
+    <span style=" padding:20px 20%;border-top:1px white solid;">
+      Réalisé par <a href="#" class="w3-hover-opacity">LAGHEZALI</a> & <a href="#" class="w3-hover-opacity">ELKAISSI</a>
+    </span>
   </div>
-</footer>
 
-<div  class="w3-black w3-center w3-padding-16">
-  <span style=" padding:20px 20%;border-top:1px white solid;">
-    Réalisé par <a href="#" class="w3-hover-opacity">LAGHEZALI</a> & <a href="#" class="w3-hover-opacity">ELKAISSI</a>
-  </span>
-</div>
+</ng-template>

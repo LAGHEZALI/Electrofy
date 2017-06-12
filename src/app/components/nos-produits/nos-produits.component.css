@@ -31,10 +31,10 @@ h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 /*  side buttons */
 #filter {
     position: absolute; /* Position them relative to the browser window */
-    left: -50px; /* Position them outside of the screen */
+    left: -60px; /* Position them outside of the screen */
     transition: 0.3s; /* Add transition on hover */
-    padding: 15px 20px 15px 5px; /* 15px padding */
-    width: 100px; /* Set a specific width */
+    padding: 15px 5px 15px 15px; /* 15px padding */
+    width: 90px; /* Set a specific width */
     text-decoration: none; /* Remove underline */
     font-size: 20px; /* Increase font size */
     color: white; /* White text color */
@@ -46,8 +46,8 @@ h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     position: absolute; /* Position them relative to the browser window */
     left: -180px; /* Position them outside of the screen */
     transition: 0.3s; /* Add transition on hover */
-    padding: 15px 50px 15px 5px; /* 15px padding */
-    width: 230px; /* Set a specific width */
+    padding: 15px 5px 15px 5px; /* 15px padding */
+    width: 210px; /* Set a specific width */
     text-decoration: none; /* Remove underline */
     font-size: 20px; /* Increase font size */
     color: white; /* White text color */
@@ -107,10 +107,6 @@ h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     right: 35px;
   }
 }
-
-
-
-
 input[type=text]{
     width: 50%; /* Full width */
     padding: 12px; /* Some padding */  
@@ -124,7 +120,6 @@ input[type=text]{
     border: none;
     border-bottom: 2px #818181 solid;
 }
-
 select {
     width: 50%; /* Full width */
     padding: 12px; /* Some padding */  
@@ -141,8 +136,68 @@ select {
     border: none;
     border-bottom: 2px #818181 solid;
 }
-
 option{
     color: #DDD;
     background-color: rgba(0,0,0,0.9);
+}
+
+
+/*  detail */
+
+.overlayDetail {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay-contentDetail {
+    position: relative;
+    top:10%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlayDetail a {
+    text-decoration: none;
+    font-size: 36px;
+    color: #CCC;
+    display: block;
+    cursor: pointer;
+}
+
+.overlayDetail h2 {
+    font-size: 30px;
+    color: #CCC;
+    transition: 0.3s;
+}
+
+.overlayDetail p {
+    font-size: 25px;
+    color: #CCC;
+    transition: 0.3s;
+}
+
+.overlayDetail a:hover, .overlayDetail a:focus, .overlayDetail p:focus, .overlayDetail h2:focus {
+    color: #f1f1f1;
+}
+.overlayDetail .closebtnDetail {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+@media screen and (max-height: 450px) {
+  .overlayDetail a {font-size: 20px}
+  .overlayDetail .closebtnDetail {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
 }

@@ -1,0 +1,42 @@
+<div id="signNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" (click)="signClose()">&times;</a>
+  <div class="overlay-content">
+    <div class="w3-row">
+        <div class="w3-col l6 m6 s6">
+          <a>Connection</a>
+
+          <form [formGroup]="cnxForm" >
+            <input id="cnx1" formControlName="email" type="text" placeholder="Votre Email..." >
+            <input id="cnx2" formControlName="mdp" type="password" placeholder="Votre Mot de passe..."><br>
+            <button (click)="this.cnxSubmit()" class="w3-btn w3-circle w3-white w3-hover-black "><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+            
+          </form>
+        
+        </div>
+        <div class="w3-col l6 m6 s6" style="border-left: 2px solid white">
+          <a>Insciption</a>
+          
+          <form  [formGroup]="inscrForm">
+            <input id="inscr1" formControlName="nom" type="text" placeholder="Votre Nom...">
+            <input id="inscr2" formControlName="prenom" type="text" placeholder="Votre Prénom...">
+            <input id="inscr3" formControlName="cin" type="text" placeholder="Votre CIN...">
+            
+            <div class="w3-row w3-center">
+              <input id="inscr4" formControlName="rue" class="w3-margin w3-col l3 m3 s3" type="text" placeholder="Votre Rue...">
+              <input id="inscr5" formControlName="ville" class="w3-margin w3-col l3 m3 s3" type="text" placeholder="Votre Ville...">
+              <input id="inscr6" formControlName="pays" class="w3-margin w3-col l3 m3 s3" type="text" placeholder="Votre Pays...">
+            </div>
+            
+            <input id="inscr7" formControlName="email" type="text" placeholder="Votre Email...">
+            <input id="inscr8" formControlName="mdp" type="password" placeholder="Votre Mot de passe..."><br>
+            <button (click)="this.inscrSubmit()" class="w3-btn w3-circle w3-white w3-hover-black "><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+            
+          </form>
+          
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="snackbar"></div>
+<a id="admin" routerLink="/admin"></a>
