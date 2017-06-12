@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SignService } from './../../services/sign.service';
 
 @Component({
@@ -8,14 +9,12 @@ import { SignService } from './../../services/sign.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(public signService: SignService) { }
+  constructor(public signService: SignService, private router: Router) { }
 
   ngOnInit() {
   }
 
   retour() {
-    const temp = document.getElementById('racine');
-    temp.click();
-
+    this.router.navigate(['/']);
   }
 }

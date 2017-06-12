@@ -6,6 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+//  Routing
+import { AppRoutingModule } from './app-routing.module';
+
 //  API
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
@@ -25,19 +28,6 @@ import { ContactComponent } from './components/contact/contact.component';
 import { SignComponent } from './components/sign/sign.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { Error404Component } from './components/error404/error404.component';
-
-//  Routes
-
-const appRoutes: Routes = [
-
-  { path: ''          , component: HomeComponent        },
-  { path: 'produits'  , component: NosProduitsComponent },
-  { path: 'categories', component: CategoriesComponent  },
-  { path: 'contact'   , component: ContactComponent     },
-  { path: 'admin'     , component: AdminComponent       },
-  { path: '**'        , component: Error404Component    }
-];
-
 
 @NgModule({
   declarations: [
@@ -59,7 +49,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot( appRoutes ),
+    AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB1N3djR5Yja62HmBWn2rLoI71jMyF21cc'
     })

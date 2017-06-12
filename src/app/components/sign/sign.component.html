@@ -9,7 +9,6 @@
             <input id="cnx1" formControlName="email" type="text" placeholder="Votre Email..." >
             <input id="cnx2" formControlName="mdp" type="password" placeholder="Votre Mot de passe..."><br>
             <button (click)="this.cnxSubmit()" class="w3-btn w3-circle w3-white w3-hover-black "><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
-            
           </form>
         
         </div>
@@ -22,9 +21,18 @@
             <input id="inscr3" formControlName="cin" type="text" placeholder="Votre CIN...">
             
             <div class="w3-row w3-center">
-              <input id="inscr4" formControlName="rue" class="w3-margin w3-col l3 m3 s3" type="text" placeholder="Votre Rue...">
-              <input id="inscr5" formControlName="ville" class="w3-margin w3-col l3 m3 s3" type="text" placeholder="Votre Ville...">
-              <input id="inscr6" formControlName="pays" class="w3-margin w3-col l3 m3 s3" type="text" placeholder="Votre Pays...">
+              <input id="inscr4" formControlName="rue" class="w3-margin w3-col l5 m5 s5" type="text" placeholder="Votre Rue...">
+              <select formControlName="ville" class="w3-margin w3-col l5 m5 s5">
+                <option style="display:none" value="Toucher pour Choisir Ville">Toucher pour Choisir Ville</option>
+                <option value="Mohammedia">Mohammedia</option>
+                <option value="Rabat">Rabat</option>
+                <option value="Casa">Casa</option>
+                <option value="Marrakesh">Marrakesh</option>
+                <option value="Fes">Fes</option>
+                <option value="Tanger">Tanger</option>
+                <option value="Agadir">Agadir</option>
+                <option value="Autre">Autre</option>
+              </select>
             </div>
             
             <input id="inscr7" formControlName="email" type="text" placeholder="Votre Email...">
@@ -39,4 +47,3 @@
 </div>
 
 <div id="snackbar"></div>
-<a id="admin" routerLink="/admin"></a>

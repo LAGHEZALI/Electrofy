@@ -29,7 +29,6 @@ export class SignComponent implements OnInit {
       'cin'     : [ '', Validators.compose([Validators.required, Validators.pattern('[A-Za-z]{2}[0-9]{5}')])],
       'rue'     : [ '', Validators.required],
       'ville'   : [ '', Validators.required],
-      'pays'    : [ '', Validators.required],
       'email' : [ '', Validators.email],
       'mdp'   : [ '', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(20)])],
     });
@@ -47,15 +46,14 @@ export class SignComponent implements OnInit {
       const email = this.cnxForm.get('email').value;
       const mdp = this.cnxForm.get('mdp').value;
 
-      let x = '0' , y = '0';
+      const x = '0' , y = '0';
 
       //  Verification des logs
       if ( email === 'admin@electrofy.com' && mdp === 'admin123') {
 
         this.signClose();
         this.signService.connexionAdmin();
-        const xxx = document.getElementById('admin');
-        xxx.click();
+        this.router.navigate(['/admin']);
 
       } else if (x === y) { // si email et mdp correspondent a un compte
 
@@ -82,11 +80,8 @@ export class SignComponent implements OnInit {
     } else if (!this.inscrForm.get('rue').valid) {
       this.showSnack('Rue Vide !', '');
 
-    } else if (!this.inscrForm.get('ville').valid) {
+    } else if (this.inscrForm.get('ville').value === 'Toucher pour Choisir Ville') {
       this.showSnack('Ville Vide !', '');
-
-    } else if (!this.inscrForm.get('pays').valid) {
-      this.showSnack('Pays Vide !', '');
 
     } else if (!this.inscrForm.get('email').valid) {
       this.showSnack('Email Vide ou non Valide !', 'inscr7');
@@ -101,7 +96,6 @@ export class SignComponent implements OnInit {
       this.inscrForm.get('cin').value;
       this.inscrForm.get('rue').value;
       this.inscrForm.get('ville').value;
-      this.inscrForm.get('pays').value;
       this.inscrForm.get('email').value;
       this.inscrForm.get('mdp').value;
     }
@@ -126,6 +120,7 @@ export class SignComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.inscrForm.get('ville').setValue('Toucher pour Choisir Ville');
   }
 
 }
