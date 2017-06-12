@@ -8,7 +8,7 @@ import { SignService } from './../../services/sign.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private signService: SignService) { }
+  constructor(public signService: SignService) { }
 
   ngOnInit() {
   }

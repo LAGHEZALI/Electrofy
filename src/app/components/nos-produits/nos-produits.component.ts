@@ -20,7 +20,7 @@ export class NosProduitsComponent implements OnInit {
         { 'img': 'assets/img/cat8.png', 'title': 'gsdgsdg sfdsf 54', 'prix': 2144, 'desc': 'BLA BLA BLA..' },
     ];
 
-    currDetail;
+    currDetail = this.items[0];
     valTot;
     quantitePanier = 1;
 

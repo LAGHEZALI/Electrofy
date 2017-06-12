@@ -11,9 +11,9 @@ import { SignService } from './../../services/sign.service';
 export class HeaderComponent implements OnInit {
 
     constructor(
-        private panierService: PanierService,
-        private signService: SignService,
-        private router: Router
+        public panierService: PanierService,
+        public signService: SignService,
+        public router: Router
         ) {}
 
     panierOpen() {
